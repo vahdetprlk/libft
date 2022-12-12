@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 17:29:05 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/12 16:35:44 by vparlak          ###   ########.fr       */
+/*   Created: 2022/12/12 15:47:48 by vparlak           #+#    #+#             */
+/*   Updated: 2022/12/12 16:59:24 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
-#include <stdio.h>
 
-int	main(void)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char dst[] = "Ali";
-
-	printf("%s\n", dst);
-	printf("%s\n", ft_memmove(dst, "mehmet", 3));
+	while (len--)
+	{
+		*(unsigned char *)dst++ = *(unsigned char *)src++;
+	}
+	return (dst);
 }

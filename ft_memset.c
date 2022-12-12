@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/10 17:29:05 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/12 16:35:44 by vparlak          ###   ########.fr       */
+/*   Created: 2022/12/10 20:50:31 by vparlak           #+#    #+#             */
+/*   Updated: 2022/12/12 15:46:01 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <ctype.h>
-#include <stdio.h>
 
-int	main(void)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char dst[] = "Ali";
-
-	printf("%s\n", dst);
-	printf("%s\n", ft_memmove(dst, "mehmet", 3));
+	while (len--)
+		*(unsigned char *)b++ = (unsigned char)c;
+	return (b);
 }
