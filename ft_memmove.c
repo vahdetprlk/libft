@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 15:47:48 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/12 16:59:24 by vparlak          ###   ########.fr       */
+/*   Created: 2022/12/13 18:06:39 by vparlak           #+#    #+#             */
+/*   Updated: 2022/12/13 19:06:50 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	while (len--)
+	char		*tmp;
+	const char	*s;
+
+	tmp = dst;
+	s = src;
+	if (src >= dst)
 	{
-		*(unsigned char *)dst++ = *(unsigned char *)src++;
+		while (len--)
+			*tmp++ = *s++;
+	}
+	else
+	{
+		tmp += len;
+		s += len;
+		while (len--)
+			*--tmp = *--s;
 	}
 	return (dst);
 }

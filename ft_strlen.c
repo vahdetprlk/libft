@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 16:06:53 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/10 17:15:07 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/13 18:01:17 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	while (s != '\0')
 			i++;
