@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:29:05 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/14 16:09:53 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/15 14:47:30 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 #include <string.h>
 
 #include "libft.h"
- #include "libft.h"
+size_t ft_strlen(const char *s)
+{
+	size_t i;
 
+	i = 0;
+	while(*s++)
+		i++;
+		return (i);
+
+}
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char		*tmp;
@@ -45,13 +53,38 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	return (srcsize);
 }
-
-
-int	main(void)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	char src[] = "123456789";
-	char dst[5];
-	int a = strlcpy(dst,src,5);
-	while(a--)
-	//	printf("%c",*dst++);
+	size_t	srcsize;
+	size_t	len;
+	size_t	dsize;
+	size_t	res;
+
+	srcsize = ft_strlen(src);
+	dsize = ft_strlen(dst);
+	res = srcsize + dsize;
+	dst += dsize;
+	if(dsize >= dstsize)
+	return (srcsize + dstsize);
+	if (dstsize)
+	{
+		if (srcsize < dstsize)
+			len = (dstsize - dsize);
+		else
+			len = 0;
+		ft_strlcpy(dst, src, len);
+	}
+	return (res);
 }
+
+int main()
+{
+	char src[100] = "Ali";
+	char dst[100] = "Bayt";
+
+	printf("%zu", strlcat(dst,src,29));
+	char srct[] = "Ali";
+	char dstt[] = "Bayt";
+	printf("%zu", ft_strlcat(dstt,srct,29));
+}
+
