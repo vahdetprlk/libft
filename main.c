@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:29:05 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/15 14:47:30 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/15 17:35:06 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,67 +24,24 @@ size_t ft_strlen(const char *s)
 		return (i);
 
 }
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char		*tmp;
-	const char	*s;
+	unsigned char	str1;
+	unsigned char	str2;
 
-	tmp = dst;
-	s = src;
 	while (n--)
-		*tmp++ = *s++;
-	return (dst);
-}
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
-{
-	size_t	srcsize;
-	size_t	len;
-
-	srcsize = strlen(src);
-	if (dstsize)
 	{
-		if (srcsize >= dstsize)
-			len = dstsize - 1;
-		else
-			len = srcsize;
-		ft_memcpy(dst, src, len);
-		dst[len] = '\0';
+		str1 = *s1++;
+		str2 = *s2++;
+		if (str1 != str2)
+			return (str1 - str2);
 	}
-	return (srcsize);
-}
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
-{
-	size_t	srcsize;
-	size_t	len;
-	size_t	dsize;
-	size_t	res;
-
-	srcsize = ft_strlen(src);
-	dsize = ft_strlen(dst);
-	res = srcsize + dsize;
-	dst += dsize;
-	if(dsize >= dstsize)
-	return (srcsize + dstsize);
-	if (dstsize)
-	{
-		if (srcsize < dstsize)
-			len = (dstsize - dsize);
-		else
-			len = 0;
-		ft_strlcpy(dst, src, len);
-	}
-	return (res);
+	return (0);
 }
 
 int main()
 {
-	char src[100] = "Ali";
-	char dst[100] = "Bayt";
-
-	printf("%zu", strlcat(dst,src,29));
-	char srct[] = "Ali";
-	char dstt[] = "Bayt";
-	printf("%zu", ft_strlcat(dstt,srct,29));
+	char s1[] = "AAC";
+	char s2[] = "AAC";
+	printf("%d",ft_strncmp(s1,s2,3) );
 }
-
