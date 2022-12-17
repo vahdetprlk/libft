@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 16:09:58 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/16 10:43:17 by vparlak          ###   ########.fr       */
+/*   Created: 2022/12/16 09:15:19 by vparlak           #+#    #+#             */
+/*   Updated: 2022/12/16 09:34:56 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <libft.h>
 
-char	*ft_strchr(const char *s, int c)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*str;
+	unsigned char	*str;
 
 	str = s;
-	while (*++str != (char)c)
-		if (*str == '\0')
+	while (*str++ != (unsigned char)c)
+		if (n--)
 			return (NULL);
-	return (str);
+	return ((void *)str);
 }

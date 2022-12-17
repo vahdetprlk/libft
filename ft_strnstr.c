@@ -1,24 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/15 16:09:58 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/16 10:43:17 by vparlak          ###   ########.fr       */
+/*   Created: 2022/12/16 09:54:08 by vparlak           #+#    #+#             */
+/*   Updated: 2022/12/16 16:58:14 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	char	*str;
+	size_t	len_needle;
+	char	*h;
+	char	*n;
 
-	str = s;
-	while (*++str != (char)c)
-		if (*str == '\0')
-			return (NULL);
-	return (str);
+	h = (char *)haystack;
+	n = (char *)needle;
+	len_needle = ft_strlen(needle);
+	if (!len_needle)
+		return (h);
+	while (len--)
+		if (!ft_memcmp(h++, n, len_needle))
+			return (--h);
+	return (NULL);
 }
