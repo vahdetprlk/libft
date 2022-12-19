@@ -8,6 +8,9 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${file}",
+                "ft_isdigit.c",
+                "-I",
+                "libft.h",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
