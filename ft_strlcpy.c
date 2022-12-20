@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:47:57 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/14 16:40:07 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/21 01:25:19 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	srcsize;
+	size_t	len_src;
 	size_t	len;
 
-	srcsize = ft_strlen(src);
+	len_src = ft_strlen(src);
 	if (dstsize)
 	{
-		if (srcsize >= dstsize)
+		if (len_src >= dstsize)
 			len = dstsize - 1;
 		else
-			len = srcsize;
+			len = len_src;
 		ft_memcpy(dst, src, len);
 		dst[len] = '\0';
 	}
-	return (srcsize);
+	return (len_src);
 }

@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:41:30 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/15 16:07:09 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/21 01:25:21 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,14 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	srcsize;
-	size_t	len;
-	size_t	dsize;
-	size_t	res;
+	size_t	len_src;
+	size_t	len_dst;
 
-	srcsize = ft_strlen(src);
-	dsize = ft_strlen(dst);
-	res = srcsize + dsize;
-	dst += dsize;
-	if (dsize >= dstsize)
-		return (srcsize + dstsize);
-	if (dstsize)
-	{
-		if (srcsize < dstsize)
-			len = (dstsize - dsize);
-		else
-			len = 0;
-		ft_strlcpy(dst, src, len);
-	}
-	return (res);
+	len_src = ft_strlen(src);
+	len_dst = ft_strlen(dst);
+	if (dstsize <= len_dst)
+		return (dstsize + len_src);
+	dst += len_dst;
+	ft_strlcpy(dst, src, (dstsize - len_dst));
+	return (len_src + len_dst);
 }
