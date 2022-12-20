@@ -6,11 +6,11 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 17:34:20 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/10 17:34:37 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/20 17:08:52 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_toupper(int c)
+int	ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		c += 32;
