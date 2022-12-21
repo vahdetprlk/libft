@@ -6,31 +6,29 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:24:17 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/21 02:21:55 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/21 17:07:53 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
 char	*ft_strrchr(const char *s, int c)
 {
 	char	*str;
-	char	*last;
+	size_t	len_str;
 
 	str = (char *)s;
-	last = NULL;
-	if (!c)
-		return (0);
-	while (*str)
+	len_str = strlen(str) + 1;
+	while (--len_str >= 0)
 	{
-		if (*str == (char)c)
-			last = str;
-			str++;
+		if (str[len_str] == (char)c)
+			return (str + len_str);
 	}
-	return (last);
+	return (NULL);
 }
-
 /* int main()
+
 {
-	ft_strrchr("ali", '\0');
+	printf("%s", ft_strrchr("bonjour", '\0'));
 } */
