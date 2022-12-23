@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 18:06:39 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/20 17:37:16 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/23 22:32:15 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char		*tmp;
+	char		*d;
 	const char	*s;
 
-	tmp = dst;
+	d = dst;
 	s = src;
+	if (!d && !s)
+		return (NULL);
 	if (src >= dst)
-	{
 		while (len--)
-			*tmp++ = *s++;
-	}
+			*d++ = *s++;
 	else
 	{
-		tmp += len;
+		d += len;
 		s += len;
 		while (len--)
-			*--tmp = *--s;
+			*--d = *--s;
 	}
 	return (dst);
 }

@@ -6,20 +6,23 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:47:48 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/20 17:37:16 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/23 22:22:36 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	char		*tmp;
 	const char	*s;
+	char		*d;
 
-	tmp = dst;
+	d = dst;
 	s = src;
+	if (!d && !s)
+		return (NULL);
 	while (n--)
-		*tmp++ = *s++;
+		*d++ = *s++;
 	return (dst);
 }

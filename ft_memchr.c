@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 09:15:19 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/21 01:56:34 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/22 17:03:11 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,17 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*str;
 
 	str = (unsigned char *)s;
-	while (*str != (unsigned char)c)
+	while (n--)
 	{
-		if (n--)
-			return (NULL);
+		if (*str == (unsigned char)c)
+			return ((void *)str);
 		str++;
 	}
-	return ((void *)str);
+	return (NULL);
 }
+/* 
+int	main(void)
+{
+	ft_memchr("bonjour", 'n', 2);
+}
+ */
