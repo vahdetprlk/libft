@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 19:25:53 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/19 09:52:11 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/24 04:22:11 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	char	*str;
-
-	str = s;
-	while (n--)
-		*str++ = '\0';
+	ft_memset(s, '\0', n);
 }

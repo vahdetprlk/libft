@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 18:06:39 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/24 04:33:20 by vparlak          ###   ########.fr       */
+/*   Created: 2022/12/24 04:50:25 by vparlak           #+#    #+#             */
+/*   Updated: 2022/12/24 05:05:30 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+char	*ft_strdup(const char *s1)
 {
-	char		*d;
-	const char	*s;
+	size_t	len_s1;
+	char	*dst;
 
-	d = dst;
-	s = src;
-	if (!d && !s)
-		return (NULL);
-	if (src >= dst)
-		ft_memcpy(dst, src, len);
-	else
-	{
-		d += len;
-		s += len;
-		while (len--)
-			*--d = *--s;
-	}
+	len_s1 = ft_strlen(s1) + 1;
+	dst = malloc(len_s1);
+	if (dst == NULL)
+		return (dst);
+	ft_strlcpy(dst, s1, len_s1);
 	return (dst);
 }
