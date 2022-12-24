@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/10 20:50:31 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/13 17:56:57 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/24 23:10:57 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*tmp;
 
-	tmp = b;
+	tmp = (unsigned char *)b;
 	while (len--)
-		*tmp++ = c;
+		*tmp++ = (unsigned char)c;
 	return (b);
 }

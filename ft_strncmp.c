@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 16:34:49 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/24 04:42:00 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/24 23:11:02 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 
 	while (n-- && (*s1 || *s2))
 	{
-		str1 = *s1++;
-		str2 = *s2++;
+		str1 = (unsigned char)*s1++;
+		str2 = (unsigned char)*s2++;
 		if (str1 != str2)
 			return (str1 - str2);
 	}

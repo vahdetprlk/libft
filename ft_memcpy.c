@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:47:48 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/23 22:22:36 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/24 23:10:54 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	const char	*s;
 	char		*d;
 
-	d = dst;
-	s = src;
+	d = (char *)dst;
+	s = (const char *)src;
 	if (!d && !s)
 		return (NULL);
 	while (n--)
