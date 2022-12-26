@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 11:05:00 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/26 22:41:35 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/27 00:45:57 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,39 +101,59 @@ char	**ft_split(char const *s, char c)
 	count1 = 0;
 	len_s = ft_strlen(s);
 	while (*s)
-		if (*s++ == c)
+	{
+		while (*s == c)
+			s++;
+		if (*s != c)
+		{
 			count1++;
-	dst = (char **)malloc((count1 + 1) * sizeof(char *));
+			while (*s && *s != c)
+				s++;// strtim ile boşluklari sil stringi ilerlet ve yer ayırıp içine at
+		}
+	}
+		dst = (char **)malloc((count1 + 1) * sizeof(char *));
+	if (!dst)
+		return (NULL);
 	s = s - len_s;
 	count2 = 0;
 	while (len_s >= 0)
 	{
-		if (*s != c && *s)
+		while (*s == c && *s)
+			s++;
+		if (*s != c && *s++)
 		{
 			count2++;
-			s++;
+			if (*s && *s == c)
+			{
+				s -= count2;
+				*dst = (char *)ft_substr(s, 0, count2);
+				dst++;
+				s += (count2 + 1);
+				count2 = 0;
+			}
+			len_s--;
 		}
-		else
-		{
-			s -= count2;
-			*dst++ = (char *)ft_substr(s, 0, count2);
-			printf("%s\n", s);
-			s += (count2 + 1);
-			count2 = 0;
-		}
-		len_s--;
 	}
-	return (dst - (count1 + 1));
+	dst[12] = '\0';
+	return (dst - (count1 - 1));
 }
 
 int	main(void)
 {
 	char	**array;
+	
 
-
-	array = ft_split("      split       this for   me  !       ",' ');
+  	array = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
 	printf("%s\n", array[0]);
 	printf("%s\n", array[1]);
-	printf("%s\n", array[2]);
+	printf("%s\n", array[3]);
+	printf("%s\n", array[4]);
+	printf("%s\n", array[5]);
+	printf("%s\n", array[6]);
+	printf("%s\n", array[7]);
+	printf("%s\n", array[8]);
+	printf("%s\n", array[9]);
+	printf("%s\n", array[10]);
+	printf("%s\n", array[11]);
 
 }
