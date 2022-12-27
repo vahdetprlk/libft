@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 11:05:00 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/27 00:45:57 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/27 21:35:00 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,51 +91,42 @@ char	*ft_strchr(const char *s, int c)
 	return (str);
 }
 
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t	i;
+
+	if (!s1 || !set)
+		return (0);
+	while (*s1 && ft_strchr(set, *s1))
+		s1++;
+	i = ft_strlen(s1);
+	while (i && ft_strchr(set, s1[i]))
+		i--;
+	return (ft_substr(s1, 0, i + 1));
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**dst;
-	size_t	count1;
-	size_t	count2;
-	int		len_s;
+	size_t	count;
 
-	count1 = 0;
-	len_s = ft_strlen(s);
+	count = 0;
 	while (*s)
 	{
-		while (*s == c)
-			s++;
-		if (*s != c)
+		while (*s)
 		{
-			count1++;
-			while (*s && *s != c)
-				s++;// strtim ile boşluklari sil stringi ilerlet ve yer ayırıp içine at
-		}
-	}
-		dst = (char **)malloc((count1 + 1) * sizeof(char *));
-	if (!dst)
-		return (NULL);
-	s = s - len_s;
-	count2 = 0;
-	while (len_s >= 0)
-	{
-		while (*s == c && *s)
-			s++;
-		if (*s != c && *s++)
-		{
-			count2++;
-			if (*s && *s == c)
-			{
-				s -= count2;
-				*dst = (char *)ft_substr(s, 0, count2);
-				dst++;
-				s += (count2 + 1);
-				count2 = 0;
+			if (*s == c)
+				s++;
+			else
+			{	
+				count++;
+				while (*s && *s != c)
+					s++;
 			}
-			len_s--;
 		}
 	}
-	dst[12] = '\0';
-	return (dst - (count1 - 1));
+	dst = (char **)malloc(count * sizeof(char *));
+	
 }
 
 int	main(void)
@@ -143,7 +134,7 @@ int	main(void)
 	char	**array;
 	
 
-  	array = ft_split("lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
+  	array = ft_split("   lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse", ' ');
 	printf("%s\n", array[0]);
 	printf("%s\n", array[1]);
 	printf("%s\n", array[3]);
