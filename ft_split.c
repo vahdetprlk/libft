@@ -6,13 +6,13 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/26 11:05:00 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/28 11:05:12 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/29 02:13:52 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	word_counter(char const *s, char c)
+static size_t	word_counter(char const *s, char c)
 {
 	size_t	word_counter;
 
