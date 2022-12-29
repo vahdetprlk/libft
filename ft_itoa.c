@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/28 12:10:44 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/29 02:27:26 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/29 02:33:07 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ char	*ft_itoa(int n)
 	nbr_chr[len] = '\0';
 	while (nbr > 0)
 	{
-		nbr_chr[--len] = nbr % 10 + 48;
+		nbr_chr[--len] = nbr % 10 + '0';
 		nbr /= 10;
 	}
 	if (n < 0)
