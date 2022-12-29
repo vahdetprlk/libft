@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 07:20:52 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/29 07:26:29 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/30 01:08:46 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (!lst->next)
-		lst = lst->next++;
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
 	return (lst);
 }
