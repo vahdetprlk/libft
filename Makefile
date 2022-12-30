@@ -12,10 +12,10 @@ B_OBJ	= $(BSRC:%.c=%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar -rcs $(NAME) $(OBJ)
+	@ar -rcs $(NAME) $(OBJ)
 
 bonus: $(OBJ) $(B_OBJ)
-	ar -rcs $(NAME) $(OBJ) $(B_OBJ)
+	@ar -rcs $(NAME) $(OBJ) $(B_OBJ)
 
 clean:
 	@rm -f *.o
