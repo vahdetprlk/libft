@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/29 07:16:30 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/30 01:15:08 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/30 15:33:33 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	size_t	n;
 
-	i = 0;
-	while (!lst->next)
-		i++;
-	return (i);
+	n = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		n++;
+	}
+	return (n);
 }

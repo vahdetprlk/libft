@@ -6,7 +6,7 @@
 /*   By: vparlak <vparlak@student.42kocaeli.com.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/24 05:56:11 by vparlak           #+#    #+#             */
-/*   Updated: 2022/12/24 23:11:03 by vparlak          ###   ########.fr       */
+/*   Updated: 2022/12/30 15:21:08 by vparlak          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	else
 	{	
+		if ((len_str - start) < len)
+			len = len_str - start;
 		if (len_str >= len)
 			dst = (char *)malloc(len + 1);
 		else
